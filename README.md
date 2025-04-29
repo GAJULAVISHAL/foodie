@@ -14,12 +14,7 @@ A mini restaurant ordering system that allows customers to browse the menu, add 
    - [Environment Variables](#environment-variables)  
    - [Database Setup](#database-setup)  
    - [Backend](#backend)  
-   - [Frontend](#frontend)  
-6. [API Endpoints](#api-endpoints)  
-7. [Database Choice Justification](#database-choice-justification)  
-8. [Assumptions & Challenges](#assumptions--challenges)  
-9. [Future Improvements](#future-improvements)  
-10. [License](#license)  
+   - [Frontend](#frontend)   
 
 ---
 
@@ -39,7 +34,7 @@ A mini restaurant ordering system that allows customers to browse the menu, add 
 - **Backend**: Node.js, Express, TypeScript, Prisma  
 - **Database**: PostgreSQL  
 - **ORM**: Prisma  
-- **Deployment**: Frontend on Netlify (or your choice), Backend on Render/Heroku  
+- **Deployment**: Frontend on vercel, Backend on Render
 
 ---
 
@@ -48,7 +43,7 @@ A mini restaurant ordering system that allows customers to browse the menu, add 
 
 - Frontend fetches menu and posts orders to the backend.
 - Backend validates and persists data in PostgreSQL via Prisma.
-- No MongoDB—PostgreSQL holds both menu and order data for simplicity and consistency.
+- PostgreSQL holds both menu and order data for simplicity and consistency.
 
 ---
 
