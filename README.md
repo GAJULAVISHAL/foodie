@@ -74,7 +74,8 @@ PORT=4000
 Create a `.env` file in the **frontend** directory:
 ```ini
 VITE_API_BASE_URL="http://localhost:4000/api"
-
+```
+``` ini
 cd backend
 npx prisma migrate dev --name init
 
