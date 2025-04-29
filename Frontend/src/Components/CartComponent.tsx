@@ -9,7 +9,7 @@ export function Cart() {
     const [phone, setPhone] = useState("");
 
     const handlePlaceOrder = (phone: string) => {
-        axios.post("http://localhost:3000/api/v1/order/placeOrder",{totalAmount : totalPrice, mobileNumber:phone,Items:cartItems })
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/order/placeOrder`,{totalAmount : totalPrice, mobileNumber:phone,Items:cartItems })
         .then(()=>{
             localStorage.setItem("number", phone);// Clear cart in local storage
             toast.success(`Order placed successfully! 📱 ${phone}`);

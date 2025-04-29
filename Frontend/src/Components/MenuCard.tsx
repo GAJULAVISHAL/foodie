@@ -32,7 +32,7 @@ const MenuCard: React.FC = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:3000/api/v1/menu/get')
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/menu/get`)
             .then(res => {
                 const fetched: Item[] = res.data.items;
                 const grouped = fetched.reduce((acc: GroupedItems, item) => {

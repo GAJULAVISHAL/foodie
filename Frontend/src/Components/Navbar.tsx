@@ -30,7 +30,7 @@ export default function Navbar() {
       const mobileNumber = localStorage.getItem("number");
       if (!mobileNumber) return;
 
-      const res = await axios.get(`http://localhost:3000/api/v1/order/getOrders/${mobileNumber}`);
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/order/getOrders/${mobileNumber}`);
 
       setOrders(res.data.orders);
     } catch (err) {
