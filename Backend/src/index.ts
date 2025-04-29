@@ -11,6 +11,6 @@ app.use(express.json());
 app.use('/api/v1/menu', MenuRouter);
 app.use('/api/v1/order', OrderRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 4010, () => {
     console.log('Server is running on port 3000');
 });

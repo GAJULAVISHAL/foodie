@@ -28,7 +28,7 @@ const MenuCard: React.FC = () => {
     const [items, setItems] = useState<GroupedItems>({});
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('');
-    const {addToCart,removeFromCart,quantities,setQuantities} = useCart(); // Assuming you have a custom hook to get cart items
+    const { addToCart, removeFromCart, quantities, setQuantities } = useCart(); // Assuming you have a custom hook to get cart items
 
     useEffect(() => {
         axios
@@ -66,7 +66,7 @@ const MenuCard: React.FC = () => {
         }));
     };
 
-    
+
     return (
         <div className="max-w-6xl mx-auto p-6 space-y-12">
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Our Delicious Menu</h1>
@@ -95,7 +95,7 @@ const MenuCard: React.FC = () => {
 
                         {/* Menu Items */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {itemList.map(item => (
+                            {visible.map(item => (
                                 <div
                                     key={item.id}
                                     className="bg-white rounded-xl p-4 border hover:border-indigo-400 shadow-sm hover:shadow-lg transition"
@@ -106,8 +106,8 @@ const MenuCard: React.FC = () => {
                                     {/* Counter Section */}
                                     <div className="mt-4 flex items-center space-x-3">
                                         <button
-                                            onClick={() =>{
-                                                decrement(item.id)
+                                            onClick={() => {
+                                                decrement(item.id);
                                                 removeFromCart(item.id);
                                             }}
                                             className="w-8 h-8 flex items-center justify-center bg-red-100 text-red-600 rounded-full text-lg font-bold hover:bg-red-200"
@@ -121,7 +121,7 @@ const MenuCard: React.FC = () => {
 
                                         <button
                                             onClick={() => {
-                                                increment(item.id)
+                                                increment(item.id);
                                                 addToCart({ ...item, quantity: 1 });
                                             }}
                                             className="w-8 h-8 flex items-center justify-center bg-green-100 text-green-600 rounded-full text-lg font-bold hover:bg-green-200"
@@ -132,6 +132,7 @@ const MenuCard: React.FC = () => {
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 );
             })}
