@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MenuItem {
+  id          Int   @id @default(autoincrement())
+  name        String
+  price       Int
+  category    category
+  isAvailable Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relation to OrderItem
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id          Int      @id @default(autoincrement())
+  totalAmount Int
+  mobileNumber String
+  createdAt   DateTime @default(now())
+  
+  // Relation to OrderItem
+  orderItems  OrderItem[]
+}
+
+// Junction model to handle many-to-many relationship with quantities
+model OrderItem {
+  id          Int        @id @default(autoincrement())
+  quantity    Int      @default(1)
+  // Relations
+  order       Order    @relation(fields: [orderId], references: [id])
+  orderId     Int
+  
+  menuItem    MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId  Int
+}
+
+enum category {
+  APPETIZER      
+  SOUP        
+  MAIN_COURSE    
+  DESSERT        
+  BEVERAGE       
+  ALCOHOLIC     
+}
