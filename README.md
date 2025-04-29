@@ -56,8 +56,7 @@ A mini restaurant ordering system that allows customers to browse the menu, add 
 
 - Node.js v16+ & npm/yarn  
 - PostgreSQL v12+  
-- (Optional) `npx prisma` globally installed
-
+- `npx prisma` 
 ---
 
 ## Installation & Setup
