@@ -85,9 +85,10 @@ npm run start        # starts server on PORT (default: 4000)
 npm run dev          # starts in watch mode
 
 ```
-
+```ini
 cd frontend
 npm install
 npm run dev          # starts Vite dev server (default: localhost:5173)
 npm run build        # builds for production
 npm run preview      # preview production build
+```
